@@ -1,3 +1,5 @@
+package utils;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -12,18 +14,16 @@ public class BrowserFactory {
 
     public WebDriver driver;
     public Properties properties;
-    public BrowserFactory() throws FileNotFoundException {
-        // ClassName obj = new Classname();
+    public BrowserFactory() throws IOException {
         properties =new Properties();
         FileInputStream file = new FileInputStream("src/main/resources/config.properties");
+        properties.load(file);
     }
 
 
     public WebDriver launchBrowser(){
-        // dataType variable=variableValue
         String browser=properties.getProperty("browser");
         if(browser.equalsIgnoreCase("chrome")) {
-            //Classname obj = new Classname();
             driver = new ChromeDriver();
             driver.manage().window().maximize();
         } else if (browser.equalsIgnoreCase("edge")) {

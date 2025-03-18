@@ -1,12 +1,16 @@
+package stepDefinitions;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import utils.BrowserFactory;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class FlipkartStepDef {
     public BrowserFactory browserFactory;
-    public FlipkartStepDef() throws FileNotFoundException {
+    public FlipkartStepDef() throws IOException {
         browserFactory=new BrowserFactory();
 
     }
