@@ -1,5 +1,5 @@
 @regression
-Feature: Flipkart - Search and Buy Toy
+Feature: flipkart - Search and Buy Toy
 
   Background:
     Given I have logged in to the flipkart application
