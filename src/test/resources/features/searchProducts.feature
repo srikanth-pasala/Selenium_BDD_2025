@@ -4,7 +4,7 @@ Feature: flipkart - Search and Buy Toy
   Background:
     Given I have logged in to the flipkart application
 
-  @positive @sanity @smoke
+  @positive @smoke @sanity
   Scenario: Validate and verify the buying toy
 
     When I searched for a toy in the search bar
