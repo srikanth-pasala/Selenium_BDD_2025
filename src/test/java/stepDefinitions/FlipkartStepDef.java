@@ -1,17 +1,28 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
 import utils.BrowserFactory;
+import utils.GenericMethods;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Properties;
 
 public class FlipkartStepDef {
     public BrowserFactory browserFactory;
+    public GenericMethods genericMethods;
+    private Properties properties;
     public FlipkartStepDef() throws IOException {
         browserFactory=new BrowserFactory();
+        genericMethods=new GenericMethods();
+        FileInputStream file = new FileInputStream("src/main/resources/config.properties");
+        properties.load(file);
+
 
     }
 
@@ -91,5 +102,11 @@ public class FlipkartStepDef {
 
     @Then("I should see the Washing machine added to my cart")
     public void iShouldSeeTheWashingMachineAddedToMyCart() {
+
+    }
+
+    @And("I quit the browser")
+    public void iQuitTheBrowser() {
+        browserFactory.quitDriver();
     }
 }
