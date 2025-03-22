@@ -6,12 +6,11 @@ import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
         features = "src/test/resources/features", // Path to your feature files
-        glue = "stepDefinitions", // Package containing step definitions
+        glue = {"stepDefinitions","hooks"},// Package containing step definitions
         plugin = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber.html", // HTML report
-                "json:target/cucumber-reports/cucumber.json", // JSON report
-                "junit:target/cucumber-reports/cucumber.xml"  // JUnit report
+                "json:target/cucumber-reports/cucumber.json" // JSON report
         },
         monochrome = true, // Makes the console output more readable
         tags = "@regression", // Define the tag to execute specific scenarios
