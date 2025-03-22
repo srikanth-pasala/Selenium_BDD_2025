@@ -5,7 +5,7 @@ Feature: Flipkart
   @positive @sanity @smoke
   Scenario: Validate and verify the buying mobile phone
     Given I have logged in to the flipkart application
-    When I searched for the mobiles in search bar
+    When I searched for the "mobiles" in search bar
     Then I should see the search results as per my request
     When I selected the first mobile in search results
     Then I should see specifications to the selected mobile
