@@ -2,9 +2,16 @@ package stepDefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.FlipkartPages;
+
+import java.io.IOException;
 
 public class AddToCartStepDef {
 
+    public FlipkartPages flipkartPages;
+    public AddToCartStepDef() throws IOException {
+        flipkartPages=new FlipkartPages();
+    }
     @When("Enter the Flipkart URL in the Chrome Browser and hit Enter")
     public void enterTheFlipkartURL(){
 
