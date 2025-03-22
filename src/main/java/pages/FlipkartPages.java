@@ -20,6 +20,10 @@ public class FlipkartPages {
     public void searchTextInSearchBar(String text){
         genericMethods.enterText(By.xpath(properties.getProperty("searchBar")),text);
     }
+public void becomeASeller(String text){
+        genericMethods.naviagteto(By.xpath(properties.getproperty("BecomeASeller")),text);
+}
+
 
 
 }
