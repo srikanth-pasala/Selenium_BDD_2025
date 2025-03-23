@@ -1,13 +1,11 @@
 @regression
 Feature: Flipkart
 
-  Background:
-    Given I have logged in to the flipkart application
 
-    @positive @sanity @smoke
+  @positive @sanity @smoke
   Scenario: Validate and verify the buying mobile phone
-
-    When I searched for the mobiles in search bar
+    Given I have logged in to the flipkart application
+    When I searched for the "mobiles" in search bar
     Then I should see the search results as per my request
     When I selected the first mobile in search results
     Then I should see specifications to the selected mobile
@@ -17,11 +15,12 @@ Feature: Flipkart
     Then I should the see the payment window with total payable amount and mutiple payment options
     When I click on pay now and completed the payment.
     Then I should see payment successful and order confirmed message
+    And  I quit the browser
 
 
-@negative
+  @negative
   Scenario: Validate and verify the buying washing machine phone
-
+    Given I have logged in to the flipkart application
     When I searched for the Washing machine in search bar
     Then I should see the search results as per my request
     When I selected the first Washing machine in search results
@@ -32,3 +31,4 @@ Feature: Flipkart
     Then I should the see the payment window with total payable amount and mutiple payment options
     When I click on pay now and completed the payment.
     Then I should see payment successful and order confirmed message
+    And  I quit the browser

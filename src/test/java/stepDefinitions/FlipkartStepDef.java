@@ -1,32 +1,40 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import pages.FlipkartPages;
 import utils.BrowserFactory;
+import utils.GenericMethods;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Properties;
 
 public class FlipkartStepDef {
     public BrowserFactory browserFactory;
+    public GenericMethods genericMethods;
+    private Properties properties;
+    private FlipkartPages flipkartPages;
     public FlipkartStepDef() throws IOException {
         browserFactory=new BrowserFactory();
+        genericMethods=new GenericMethods();
+        FileInputStream file = new FileInputStream("src/main/resources/config.properties");
+        properties.load(file);
+        flipkartPages = new FlipkartPages();
 
     }
 
 
     @Given("I have logged in to the flipkart application")
     public void logInToTheFlipkart()  {
-        //open the browser first
-        // navigate flipkart url
-        // login to application
-        // We will write selenium java code to login to application
+
 
         browserFactory.launchBrowser();
         browserFactory.goToUrl("https://www.flipkart.com/");
-        //enter credentials
-        //click on login button
     }
 
     @Then("I should see specifications to the selected Washing machine")
@@ -34,8 +42,10 @@ public class FlipkartStepDef {
 
     }
 
-    @When("I searched for the mobiles in search bar")
-    public void iSearchedForTheMobilesInSearchBar() {
+    @When("I searched for the {string} in search bar")
+    public void iSearchedForTheMobilesInSearchBar(String text) {
+        flipkartPages.searchTextInSearchBar(text);
+
 
     }
 
@@ -91,5 +101,11 @@ public class FlipkartStepDef {
 
     @Then("I should see the Washing machine added to my cart")
     public void iShouldSeeTheWashingMachineAddedToMyCart() {
+
+    }
+
+    @And("I quit the browser")
+    public void iQuitTheBrowser() {
+        browserFactory.quitDriver();
     }
 }
