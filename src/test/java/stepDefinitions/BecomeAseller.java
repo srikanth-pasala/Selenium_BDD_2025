@@ -4,18 +4,24 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.FlipkartPages;
 
+import java.io.IOException;
 
-public class BecomeASeller {
+
+public class BecomeAseller {
+    private FlipkartPages flipkartPages;
+    public BecomeAseller() throws IOException {
+         flipkartPages = new FlipkartPages();
+    }
     @When("i clicked on Become a seller")
     public void iClickedOnBecomeASeller() {
-        FlipkartPages.becomeAseller
 
+        flipkartPages.becomeASeller();
 
     }
 
     @Then("i should see a title displayed as sell online with flipkart")
     public void iShouldSeeATitleDisplayedAsSellOnlineWithFlipkart() {
-        FlipkartPages.sellonline
+        flipkartPages.sellOnline();
 
     }
 
@@ -41,4 +47,6 @@ public class BecomeASeller {
 
     }
 }
+
+
 
