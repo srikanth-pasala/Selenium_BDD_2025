@@ -13,7 +13,7 @@ import org.testng.annotations.DataProvider;
                 "json:target/cucumber-reports/cucumber.json" // JSON report
         },
         monochrome = true, // Makes the console output more readable
-        tags = "@regression", // Define the tag to execute specific scenarios
+        tags = "@Become_a_Seller", // Define the tag to execute specific scenarios
         snippets = CucumberOptions.SnippetType.CAMELCASE // Generate step definitions in camel case
 )
 public class FlipkartRunner extends AbstractTestNGCucumberTests {

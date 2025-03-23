@@ -9,9 +9,9 @@ import java.util.Properties;
 
 public class FlipkartPages {
 
+    public static java.lang.Object becomeAseller;
     private GenericMethods genericMethods;
     private Properties properties;
-
     public FlipkartPages() throws IOException {
         FileInputStream file = new FileInputStream("src/main/resources/config.properties");
         properties.load(file);
@@ -21,9 +21,12 @@ public class FlipkartPages {
         genericMethods.enterText(By.xpath(properties.getProperty("searchBar")),text);
     }
 public void becomeASeller(String text){
-        genericMethods.naviagteto(By.xpath(properties.getproperty("BecomeASeller")),text);
+        genericMethods.clickElement(By.xpath(properties.getProperty("becomeASeller")));
+
 }
 
+public void sellonline(String text)
+    genericMethods.clickElement(By.xapth(properties.getProperty("sellonline")));
 
 
 }

@@ -5,16 +5,17 @@ import io.cucumber.java.en.When;
 import pages.FlipkartPages;
 
 
-public class BecomeAseller {
+public class BecomeASeller {
     @When("i clicked on Become a seller")
     public void iClickedOnBecomeASeller() {
+        FlipkartPages.becomeAseller
 
-        FlipkartPages.becomeAseller.click
 
     }
 
     @Then("i should see a title displayed as sell online with flipkart")
     public void iShouldSeeATitleDisplayedAsSellOnlineWithFlipkart() {
+        FlipkartPages.sellonline
 
     }
 
@@ -25,6 +26,8 @@ public class BecomeAseller {
 
     @Then("i should be able to select help and support")
     public void iShouldBeAbleToSelectHelpAndSupport() {
+
+
 
     }
 
