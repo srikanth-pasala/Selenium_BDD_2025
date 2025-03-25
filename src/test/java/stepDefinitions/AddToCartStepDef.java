@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.FlipkartPages;
@@ -12,67 +13,46 @@ public class AddToCartStepDef {
     public AddToCartStepDef() throws IOException {
         flipkartPages=new FlipkartPages();
     }
-    @When("Enter the Flipkart URL in the Chrome Browser and hit Enter")
-    public void enterTheFlipkartURL(){
 
+    @When("Click on the Mobiles at the top of the page")
+    public void clickOnTheMobilesAtTheTopOfThePage() {
+    }
+
+    @Then("You will be redirected to the Mobiles page")
+    public void youWillBeRedirectedToTHEMobilePage() {
 
     }
 
-    @Then("Flipkart window will be opened in the Browser")
-    public void flipkartWindowWillBeOpenedInTheBrowser() {
+    @When("Click on the Apple Check box in the filter")
+    public void clickOnTheAppleCheckBoxInTheFilter() {
 
     }
 
-    @When("Click on the Login Button in the top of the page")
-    public void clickOnTheLoginButtonInTheTopOfThePage() {
+
+    @And("Click on the customer ratings {int}&Above in the filter")
+    public void clickOnTheCustomerRatingsAboveInTheFilter(int arg0) {
 
     }
 
-    @Then("Page will be redirected to the login screen")
-    public void pageWillBeRedirectedToTheLoginScreen() {
+
+    @Then("Apple products with Customer ratings {int}&Above will be displayed in the page")
+    public void appleProductsWithCustomerRatingsAboveWillBeDisplayedInThePage(int arg0) {
+
     }
 
-    @When("Click on Request OTP")
-    public void clickOnRequestOTP() {
-    }
-
-    @When("Enter the received OTP")
-    public void enterTheReceivedOTP() {
-    }
-
-    @Then("You will be redirected to the flipkart home screen showing your name beside the profile icon")
-    public void youWillBeRedirectedToTheFlipkartHomeScreenShowingYourNameBesideTheProfileIcon() {
-    }
-
-    @When("Click on the search and enter the product you are looking")
-    public void clickOnTheSearchAndEnterTheProductYouAreLooking() {
-    }
-
-    @When("Enter the Apple Mobile in the search bar")
-    public void enterTheAppleMobileInTheSearchBar() {
-    }
-
-    @Then("Multiple Apple Products with different configurations displayed")
-    public void multipleAppleProductsWithDifferentConfigurationsDisplayed() {
-    }
-
-    @When("Click on the Mobile Looking for")
-    public void clickOnTheMobileLookingFor() {
-    }
-
-    @When("Clicked on the Apple IPhone {int} \\(Black{double}Gb)")
-    public void clickedOnTheAppleIPhoneBlackGb(int arg0, int arg1) {
+    @When("Click on the Apple {int} Blue{double}Gb")
+    public void clickOnTheAppleBlueGb(int arg0, int arg1) {
     }
 
     @Then("New Tab will be opened by displaying the Mobile Selected")
     public void newTabWillBeOpenedByDisplayingTheMobileSelected() {
     }
 
-    @Then("Scroll Down the page until bottom to verify the features of the mobile")
+    @When("Scroll Down the page until bottom to verify the features of the mobile")
     public void scrollDownThePageUntilBottomToVerifyTheFeaturesOfTheMobile() {
     }
 
-    @When("Click on the Add to cart Button")
+    @And("Click on the Add to cart Button")
     public void clickOnTheAddToCartButton() {
     }
 
@@ -80,7 +60,11 @@ public class AddToCartStepDef {
     public void mobileWillBeAddedToTheCart() {
     }
 
-    @When("Once the account is created give the Mobile Email to login")
-    public void onceTheAccountIsCreatedGiveTheMobileEmailToLogin() {
+    @When("To Re-check the items, Click on the cart symbol at the top right of the page")
+    public void toReCheckTheItemsClickOnTheCartSymbolAtTheTopRightOfThePage() {
+    }
+
+    @Then("Items added in the cart will be displayed")
+    public void itemsAddedInTheCartWillBeDisplayed() {
     }
 }
