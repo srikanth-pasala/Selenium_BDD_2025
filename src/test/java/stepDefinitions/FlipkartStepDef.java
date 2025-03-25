@@ -19,7 +19,8 @@ public class FlipkartStepDef {
     public GenericMethods genericMethods;
     private Properties properties;
     private FlipkartPages flipkartPages;
-    public FlipkartStepDef() throws IOException {
+    public FlipkartStepDef(Properties properties) throws IOException {
+        this.properties = properties;
         browserFactory=new BrowserFactory();
         genericMethods=new GenericMethods();
         FileInputStream file = new FileInputStream("src/main/resources/config.properties");
