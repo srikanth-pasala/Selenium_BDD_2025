@@ -15,7 +15,7 @@ public class FlipkartPages {
 
 
     public FlipkartPages() throws IOException {
-        FileInputStream file = new FileInputStream("src/main/resources/config.properties");
+        FileInputStream file = new FileInputStream("src/main/resources/locators/Flipkart.properties");
         properties.load(file);
         genericMethods = new GenericMethods();
     }
