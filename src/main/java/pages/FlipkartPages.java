@@ -33,4 +33,7 @@ public class FlipkartPages {
         genericMethods.clickElement(By.xpath(properties.getProperty("sellonline")));
     }
 
+    public void mobilesButton(){
+        genericMethods.clickElement(By.xpath((String) properties.get("mobilesButton")));
+    }
 }
