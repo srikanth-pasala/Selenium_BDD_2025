@@ -33,4 +33,11 @@ public class FlipkartPages {
         genericMethods.clickElement(By.xpath(properties.getProperty("sellonline")));
     }
 
+    public String getCurrentPageTitle(){
+        return genericMethods.getTitle();
+    }
+
+    public void clickOnFirstResultsOfSearch(){
+        genericMethods.clickElement(By.xpath(properties.getProperty("firstProductInSearchResultsForMobiles")));
+    }
 }

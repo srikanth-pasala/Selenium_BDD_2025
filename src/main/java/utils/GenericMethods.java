@@ -117,4 +117,7 @@ public class GenericMethods {
         }
     }
 
+    public String getTitle() {
+        return driver.getTitle();
+    }
 }

@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 import pages.FlipkartPages;
 import utils.BrowserFactory;
 import utils.GenericMethods;
@@ -48,13 +49,14 @@ public class FlipkartStepDef {
 
     }
 
-    @Then("I should see the search results as per my request")
-    public void iShouldSeeTheSearchResultsAsPerMyRequest() {
+    @Then("I should see the search results as per my request with title {string} of the page")
+    public void iShouldSeeTheSearchResultsAsPerMyRequest(String title) {
+        Assert.assertTrue(flipkartPages.getCurrentPageTitle().contains(title),"Verifying the page title to contain "+title+ "but the actual is "+flipkartPages.getCurrentPageTitle());
     }
 
     @When("I selected the first mobile in search results")
     public void iSelectedTheFirstMobileInSearchResults() {
-
+        flipkartPages.clickOnFirstResultsOfSearch();
     }
 
     @Then("I should see specifications to the selected mobile")
