@@ -2,7 +2,7 @@
 Feature: Flipkart
 
 
-  @positive @sanity @smoke
+  @positive @sanity @smoke @mobileSearch
   Scenario: Validate and verify the buying mobile phone
     Given I have logged in to the flipkart application
     When I searched for the "mobiles" in search bar
@@ -12,10 +12,6 @@ Feature: Flipkart
     When I add the mobile to my cart
     Then I should see the mobile added to my cart
     When I clicked on Buy now button to buy the product
-    Then I should the see the payment window with total payable amount and mutiple payment options
-    When I click on pay now and completed the payment.
-    Then I should see payment successful and order confirmed message
-    And  I quit the browser
 
 
   @smoke
@@ -31,4 +27,3 @@ Feature: Flipkart
     Then I should the see the payment window with total payable amount and mutiple payment options
     When I click on pay now and completed the payment.
     Then I should see payment successful and order confirmed message
-    And  I quit the browser

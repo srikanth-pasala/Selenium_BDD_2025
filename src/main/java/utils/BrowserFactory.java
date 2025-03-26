@@ -12,10 +12,12 @@ import java.util.Properties;
 
 public class BrowserFactory {
 
-    private WebDriver driver;
-    private Properties properties;
+    private static BrowserFactory instance;
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+    private static Properties properties;
 
-    public BrowserFactory() {
+    /** Private constructor to prevent instantiation */
+    private BrowserFactory() {
         try {
             properties = new Properties();
             FileInputStream file = new FileInputStream("src/main/resources/config.properties");
@@ -25,59 +27,71 @@ public class BrowserFactory {
         }
     }
 
+    /** Singleton instance getter */
+    public static BrowserFactory getInstance() {
+        if (instance == null) {
+            synchronized (BrowserFactory.class) {
+                if (instance == null) {
+                    instance = new BrowserFactory();
+                }
+            }
+        }
+        return instance;
+    }
 
-    public WebDriver launchBrowser() {
-        if (driver == null) {
+    /** Launch Browser */
+    public static void launchBrowser() {
+        if (driver.get() == null) {
             String browser = properties.getProperty("browser").toLowerCase();
 
             switch (browser) {
                 case "chrome":
-                    driver = new ChromeDriver();
+                    driver.set(new ChromeDriver());
                     break;
                 case "edge":
-                    driver = new EdgeDriver();
+                    driver.set(new EdgeDriver());
                     break;
                 case "firefox":
-                    driver = new FirefoxDriver();
+                    driver.set(new FirefoxDriver());
                     break;
                 default:
                     throw new IllegalArgumentException("Unsupported browser: " + browser);
             }
 
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); // Optional implicit wait
+            WebDriver webDriver = driver.get();
+            webDriver.manage().window().maximize();
+            webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         }
-        return driver;
     }
 
+    /** Get WebDriver instance */
+    public static WebDriver getDriver() {
+        if (driver.get() == null) {
+            launchBrowser();
+        }
+        return driver.get();
+    }
+
+    /** Open a URL */
     public void goToUrl(String url) {
-        if (driver != null) {
-            driver.get(url);
-        } else {
-            throw new IllegalStateException("WebDriver is not initialized. Call launchBrowser() first.");
-        }
+        getDriver().get(url);
     }
 
+    /** Navigate to a URL */
     public void navigateTo(String url) {
-        if (driver != null) {
-            driver.navigate().to(url);
-        } else {
-            throw new IllegalStateException("WebDriver is not initialized. Call launchBrowser() first.");
-        }
+        getDriver().navigate().to(url);
     }
 
+    /** Refresh page */
     public void refresh() {
-        if (driver != null) {
-            driver.navigate().refresh();
-        } else {
-            throw new IllegalStateException("WebDriver is not initialized. Call launchBrowser() first.");
-        }
+        getDriver().navigate().refresh();
     }
 
+    /** Quit WebDriver */
     public void quitDriver() {
-        if (driver != null) {
-            driver.quit();
-            driver = null; // Resetting driver to avoid reuse of a closed session
+        if (driver.get() != null) {
+            driver.get().quit();
+            driver.remove(); // Ensure clean-up
         }
     }
 }
