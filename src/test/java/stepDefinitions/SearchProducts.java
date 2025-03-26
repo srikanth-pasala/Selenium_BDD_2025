@@ -30,10 +30,6 @@ public class SearchProducts {
     public void iClickedOnTheBuyNowButtonToBuyTheProduct() {
     }
 
-    @Then("I should see the payment window with total payable amount and multiple payment options")
-    public void iShouldSeeThePaymentWindowWithTotalPayableAmountAndMultiplePaymentOptions() {
-    }
-
     @When("I click on Pay Now and complete the payment")
     public void iClickOnPayNowAndCompleteThePayment() {
     }

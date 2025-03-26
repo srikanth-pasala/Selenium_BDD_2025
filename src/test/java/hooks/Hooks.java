@@ -5,11 +5,13 @@ import utils.BrowserFactory;
 
 public class Hooks {
 
-    private BrowserFactory browserFactory = new BrowserFactory();
-
     @After
     public void tearDownScenario() {
-        browserFactory.quitDriver();
-        System.out.println("WebDriver closed after scenario execution.");
+        try {
+            BrowserFactory.getInstance().quitDriver();
+            System.out.println("WebDriver closed after scenario execution.");
+        } catch (Exception e) {
+            System.err.println("Error while closing WebDriver: " + e.getMessage());
+        }
     }
 }

@@ -10,13 +10,22 @@ import java.util.List;
 
 public class GenericMethods {
 
-    private WebDriver driver;
-    private WebDriverWait wait;
+    private static GenericMethods instance;
+    private final WebDriver driver;
+    private final WebDriverWait wait;
 
+    // Private constructor to enforce Singleton pattern
     public GenericMethods() {
-        BrowserFactory browserFactory=new BrowserFactory();
-        this.driver = browserFactory.launchBrowser();
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Default wait time
+        this.driver = BrowserFactory.getDriver();
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    }
+
+    // Singleton instance method
+    public static GenericMethods getInstance() {
+        if (instance == null) {
+            instance = new GenericMethods();
+        }
+        return instance;
     }
 
     /** Click an element */
@@ -117,4 +126,8 @@ public class GenericMethods {
         }
     }
 
+    /** Get page title */
+    public String getTitle() {
+        return driver.getTitle();
+    }
 }
