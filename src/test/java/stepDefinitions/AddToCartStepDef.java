@@ -16,6 +16,7 @@ public class AddToCartStepDef {
 
     @When("Click on the Mobiles at the top of the page")
     public void clickOnTheMobilesAtTheTopOfThePage() {
+        flipkartPages.mobileButton();
     }
 
     @Then("You will be redirected to the Mobiles page")
@@ -25,6 +26,7 @@ public class AddToCartStepDef {
 
     @When("Click on the Apple Check box in the filter")
     public void clickOnTheAppleCheckBoxInTheFilter() {
+        flipkartPages.appleCheckBox();
 
     }
 
